@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header/header.component';
+import TravelTab from '../components/TravelTab/travel-tab.component';
 
 const ItineraryScreen = ({ event }) => {
   return (
@@ -10,7 +11,9 @@ const ItineraryScreen = ({ event }) => {
       departure={event.departure}
       arrival={event.arrival}
     />
-
+    <TravelTab />
+    <TravelTab />
+    <TravelTab />
   );
 };
 
