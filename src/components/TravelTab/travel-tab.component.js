@@ -1,35 +1,36 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import Chips from './Chips/chips.component';
+import Cards from './Cards/cards.component';
 
 const TravelTab = ({ icon, name, subtitle, options, price, type }) => {
-  const tabs = <Text>Na</Text>;
-
-  if (type === flight) {
-    tabs = <Text>Flights</Text>;
-  } else if (type === hotel) {
-    tabs = <Text>Hotels</Text>;
-  } else if (type === car) {
-    tabs = <Text>Cars</Text>;
-  }
+  const tabs = <Text>N/A</Text>;
 
   return (
-    <View>
+    <View style={styles.container}>
       <View>
         <Text>
           {icon} {name} {subtitle} {price} 3dots placeholder
         </Text>
       </View>
+      <View>{type ? <Chips type={type} /> : tabs}</View>
+      <ScrollView>
+        <Cards />
+      </ScrollView>
       <View>
-        {tabs}
-      </View>
-      <View>
-        {tabs}
-      </View>
-      <View>
-        Book with Booking.com Placeholder
+        <Text>Book with Booking.com Placeholder</Text>
       </View>
     </View>
   );
 };
 
 export default TravelTab;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
