@@ -18,7 +18,8 @@ export default Footer;
 const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
-    marginVertical: 15,
+    marginTop: 15,
+    marginBottom: 50,
     alignItems: 'center',
     justifyContent: 'space-between'
   },
