@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Header from '../components/Header/header.component';
 import TravelTab from '../components/TravelTab/travel-tab.component';
+import TripOverviewFooter from '../components/TripOverviewFooter/trip-overview-footer.component';
 
 const ItineraryScreen = ({ event }) => {
+  const [expanded, setExpanded] = useState('flight');
+
+  const handleTouch = type => {
+    setExpanded(type);
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -23,21 +30,28 @@ const ItineraryScreen = ({ event }) => {
         />
         <TravelTab
           type="flight"
+          expanded={expanded === 'flight'}
           persons={event.persons}
           departure={event.departure}
           arrival={event.arrival}
+          handleTouch={handleTouch}
         />
         <TravelTab
           type="hotel"
+          expanded={expanded === 'hotel'}
           rooms={event.rooms}
           nights={event.nights}
           arrival={event.arrival}
+          handleTouch={handleTouch}
         />
         <TravelTab
-          type="car" 
-          days={event.days} 
-          arrival={event.arrival} 
+          type="car"
+          days={event.days}
+          arrival={event.arrival}
+          expanded={expanded === 'car'}
+          handleTouch={handleTouch}
         />
+        <TripOverviewFooter />
       </LinearGradient>
     </View>
   );

@@ -3,7 +3,38 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import { Entypo } from '@expo/vector-icons';
 
-const Header = ({ icon, name, subtitle, price }) => {
+const Header = ({ expanded, icon, name, subtitle, price }) => { 
+  const styles = StyleSheet.create({
+    header: {
+      flexDirection: 'row',
+      marginVertical: 15,
+      alignItems: 'center',
+    },
+    name: {
+      color: expanded ? 'black' : '#989DB1',
+      fontSize: expanded ? 24 : 16,
+      fontFamily: 'Roboto',
+      fontWeight: 'bold',
+      marginHorizontal: 15
+    },
+    subtitle: {
+      fontSize: 16,
+      flex: 1,
+      color: '#989DB1',
+      fontFamily: 'Roboto',
+      fontWeight: 'bold'
+    },
+    price: {
+      color: expanded ? 'black' : '#989DB1',
+      fontSize: expanded ? 20 : 18,
+      fontFamily: 'Roboto',
+      fontWeight: 'bold'
+    },
+    dots: {
+      marginHorizontal: 15
+    }
+  });
+
   return (
     <View style={styles.header}>
       {icon}
@@ -22,33 +53,3 @@ const Header = ({ icon, name, subtitle, price }) => {
 
 export default Header;
 
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    marginVertical: 15,
-    alignItems: 'center',
-    fontFamily: 'Roboto',
-    fontWeight: 'bold'
-  },
-  name: {
-    fontSize: 24,
-    fontFamily: 'Roboto',
-    fontWeight: 'bold',
-    marginHorizontal: 15
-  },
-  subtitle: {
-    fontSize: 16,
-    flex: 1,
-    color: '#989DB1',
-    fontFamily: 'Roboto',
-    fontWeight: 'bold'
-  },
-  price: {
-    fontSize: 20,
-    fontFamily: 'Roboto',
-    fontWeight: 'bold'
-  },
-  dots: {
-    marginHorizontal: 15
-  }
-});
