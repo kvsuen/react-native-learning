@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 24,
-    marginBottom: 2
+    marginBottom: 2,
   },
   textSubText: {
     color: 'white',

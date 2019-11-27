@@ -33,7 +33,11 @@ const ItineraryScreen = ({ event }) => {
           nights={event.nights}
           arrival={event.arrival}
         />
-        <TravelTab type="car" days={event.days} arrival={event.arrival} />
+        <TravelTab
+          type="car" 
+          days={event.days} 
+          arrival={event.arrival} 
+        />
       </LinearGradient>
     </View>
   );

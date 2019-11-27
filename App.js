@@ -4,10 +4,14 @@ import ItineraryScreen from './src/screens/ItineraryScreen';
 
 const event = {
   title: "Calgary Tech Conference",
-  startDate: "July 25 - 8:30",
-  endDate: "July 29 - 8:30",
+  startDate: "July 25 · 8:30",
+  endDate: "July 29 · 8:30",
   departure: "Toronto, ON",
   arrival: "Calgary, AB",
+  persons: 1,
+  rooms: 1,
+  nights: 4,
+  days: 4
 }
 
 export default function App() {
@@ -21,8 +25,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

@@ -1,22 +1,32 @@
 import React from 'React';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
-const Chips = ({ type }) => {
-  let labels = [];
-
-  if (type === 'flight') {
-    labels = ['Airlines', 'Stops', 'Time in', 'Time out'];
-  } else if (type === 'hotel') {
-    labels = ['Name', 'Price', 'Type', 'Location'];
-  } else if (type === 'car') {
-    labels = ['Supplier', 'Price', 'Type', 'Pickup', 'Drop off'];
-  }
-
+const Chips = ({ labels }) => {
   const chips = labels.map((label, index) => {
-    return <Text key={index}>{label}</Text>;
+    return (
+      <View style={styles.container} key={index}>
+        <Text style={styles.text} >
+          {label}
+        </Text>
+      </View>
+    );
   });
 
   return <>{chips}</>;
 };
 
 export default Chips;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#D0EAE4',
+    borderRadius: 20,
+    marginHorizontal: 8
+  },
+  text: { 
+    color: '#59B8C0',
+    fontFamily: 'Roboto',
+    fontWeight: 'bold',
+    padding: 10
+  }
+});
