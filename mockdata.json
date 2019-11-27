@@ -1,0 +1,137 @@
+{
+  "title": "Calgary Tech Conference",
+  "startDate": "July 25 · 8:30",
+  "endDate": "July 29 · 8:30",
+  "departure": "Toronto, ON",
+  "arrival": "Calgary, AB",
+  "persons": 1,
+  "rooms": 1,
+  "nights": 4,
+  "days": 4,
+  "flightOptions": [
+    {
+      "type": "Departing",
+      "airline": "Westjet",
+      "date": "24 July",
+      "departureTime": "20:00",
+      "arrivalTime": "22:12",
+      "departureLocation": "YYZ",
+      "arrivalLocation": "YYC",
+      "stops": 1,
+      "flightTime": "4h 12m",
+      "price": 163
+    },
+    {
+      "type": "Departing",
+      "airline": "Westjet",
+      "date": "24 July",
+      "departureTime": "20:00",
+      "arrivalTime": "22:12",
+      "departureLocation": "YYZ",
+      "arrivalLocation": "YYC",
+      "stops": 1,
+      "flightTime": "4h 12m",
+      "price": 163
+    },
+    {
+      "type": "Departing",
+      "airline": "Westjet",
+      "date": "24 July",
+      "departureTime": "20:00",
+      "arrivalTime": "22:12",
+      "departureLocation": "YYZ",
+      "arrivalLocation": "YYC",
+      "stops": 1,
+      "flightTime": "4h 12m",
+      "price": 163
+    },
+    {
+      "type": "Returning",
+      "airline": "Westjet",
+      "date": "29 July",
+      "departureTime": "19:00",
+      "arrivalTime": "21:12",
+      "departureLocation": "YYC",
+      "arrivalLocation": "YYZ",
+      "stops": 1,
+      "flightTime": "4h 12m",
+      "price": 163
+    },
+    {
+      "type": "Returning",
+      "airline": "Westjet",
+      "date": "29 July",
+      "departureTime": "19:00",
+      "arrivalTime": "21:12",
+      "departureLocation": "YYC",
+      "arrivalLocation": "YYZ",
+      "stops": 1,
+      "flightTime": "4h 12m",
+      "price": 163
+    },
+    {
+      "type": "Returning",
+      "airline": "Westjet",
+      "date": "29 July",
+      "departureTime": "19:00",
+      "arrivalTime": "21:12",
+      "departureLocation": "YYC",
+      "arrivalLocation": "YYZ",
+      "stops": 1,
+      "flightTime": "4h 12m",
+      "price": 163
+    }
+  ],
+  "hotelOptions": [
+    {
+      "name": "Alt Hotel Calgary East Village",
+      "tag": "Event Partner",
+      "deal": "Exclusive Deal",
+      "walkDistance": 300,
+      "pricePerNight": 163
+    },
+    {
+      "name": "Alt Hotel Calgary East Village",
+      "tag": "Event Partner",
+      "deal": "Exclusive Deal",
+      "walkDistance": 300,
+      "pricePerNight": 163
+    },
+    {
+      "name": "Alt Hotel Calgary East Village",
+      "tag": "Event Partner",
+      "deal": "Exclusive Deal",
+      "walkDistance": 300,
+      "pricePerNight": 163
+    }
+  ],
+  "carOptions": [
+    {
+      "make": "Kia",
+      "vehicle": "Rio",
+      "image": "temp",
+      "luggage": "1 Large · 1 Small Bags",
+      "deal": "Great Deal",
+      "pickUpLocation": "In Terminal",
+      "pricePerDay": 44
+    },
+    {
+      "make": "Kia",
+      "vehicle": "Rio",
+      "image": "temp",
+      "luggage": "1 Large · 1 Small Bags",
+      "deal": "Great Deal",
+      "pickUpLocation": "In Terminal",
+      "pricePerDay": 44
+    },
+    {
+      "make": "Kia",
+      "vehicle": "Rio",
+      "image": "temp",
+      "luggage": "1 Large · 1 Small Bags",
+      "deal": "Great Deal",
+      "pickUpLocation": "In Terminal",
+      "pricePerDay": 44
+    }
+  ]
+}
