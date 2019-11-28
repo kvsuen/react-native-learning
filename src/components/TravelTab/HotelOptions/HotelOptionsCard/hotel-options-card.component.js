@@ -18,10 +18,12 @@ const HotelOptionsCard = ({
         <Text style={styles.description}> {rating} · Superb · {stars} star hotel </Text>
       </View>
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{name}</Text>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text style={styles.grayBoldText}>{tag} &nbsp;&nbsp;</Text>
-          <Text style={styles.grayBoldText}>{deal}</Text>
+        <View>
+          <Text style={styles.title}>{name}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={styles.grayBoldText}>{tag} &nbsp;&nbsp;</Text>
+            <Text style={styles.grayBoldText}>{deal}</Text>
+          </View>
         </View>
         <View style={styles.flexContainer}>
           <Text style={styles.grayText}>
@@ -49,7 +51,6 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   flexContainer: {
-    marginTop: 25,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
@@ -71,7 +72,8 @@ const styles = StyleSheet.create({
     marginTop: -20,
     paddingHorizontal: 15,
     paddingVertical: 15,
-    flex: 1
+    flex: 1,
+    justifyContent: 'space-between'
   },
   title: {
     fontSize: 22,
