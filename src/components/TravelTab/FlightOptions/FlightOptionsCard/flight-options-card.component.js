@@ -1,8 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableWithoutFeedback
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const FlightOptionsCard = ({
+  id,
   direction,
   index,
   airline,
@@ -15,12 +22,22 @@ const FlightOptionsCard = ({
   stops,
   flightTime,
   price,
+  selectedItem,
   handleSelection
 }) => {
+  const flightSelection = direction === 'Departing' ? 'depFlight' : 'retFlight';
 
   return (
-    <TouchableWithoutFeedback onPress={() => handleSelection('flight', price, 1)}>
-      <View style={{...styles.container, marginBottom: index % 2 === 0 ? 10 : 0 }}>
+    <TouchableWithoutFeedback
+      onPress={() => handleSelection(id, flightSelection, price, 1)}
+    >
+      <View
+        style={{
+          ...styles.container,
+          marginBottom: index % 2 === 0 ? 10 : 0,
+          borderColor: selectedItem[flightSelection] === id ? 'rgb(255, 198, 112)' : '#D0EAE4'
+        }}
+      >
         <View style={styles.textContainer}>
           <View>
             <Text style={styles.title}>
@@ -32,12 +49,12 @@ const FlightOptionsCard = ({
               style={{ height: 35, width: 35 }}
               source={{ uri: airlineImage }}
             />
-            <View style={{marginHorizontal: 20}}>
+            <View style={{ marginHorizontal: 20 }}>
               <Text style={styles.timeText}>{departureTime}</Text>
               <Text style={styles.locationText}>{departureLocation}</Text>
             </View>
             <Ionicons name="ios-arrow-round-forward" size={36} color="black" />
-            <View style={{marginHorizontal: 20}}>
+            <View style={{ marginHorizontal: 20 }}>
               <Text style={styles.timeText}>{arrivalTime}</Text>
               <Text style={styles.locationText}>{arrivalLocation}</Text>
             </View>

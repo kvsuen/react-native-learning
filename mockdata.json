@@ -11,6 +11,7 @@
   "days": 4,
   "flightOptions": [
     {
+      "id": 0,
       "direction": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
@@ -24,6 +25,7 @@
       "price": 163
     },
     {
+      "id": 1,
       "direction": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
@@ -37,6 +39,7 @@
       "price": 183
     },
     {
+      "id": 2,
       "direction": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
@@ -50,6 +53,7 @@
       "price": 163
     },
     {
+      "id": 3,
       "direction": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
@@ -63,6 +67,7 @@
       "price": 183
     },
     {
+      "id": 4,
       "direction": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
@@ -77,6 +82,7 @@
     },
 
     {
+      "id": 5,
       "direction": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
@@ -92,6 +98,7 @@
   ],
   "hotelOptions": [
     {
+      "id": 0,
       "name": "Alt Hotel Calgary East Village",
       "image": "https://q-cf.bstatic.com/images/hotel/max1024x768/193/193744871.jpg",
       "rating": 9.5,
@@ -102,6 +109,7 @@
       "pricePerNight": 163
     },
     {
+      "id": 1,
       "name": "Alt Hotel Calgary East Village",
       "image": "https://q-cf.bstatic.com/images/hotel/max1024x768/193/193744871.jpg",
       "rating": 9.5,
@@ -112,6 +120,7 @@
       "pricePerNight": 163
     },
     {
+      "id": 2,
       "name": "Alt Hotel Calgary East Village",
       "image": "https://q-cf.bstatic.com/images/hotel/max1024x768/193/193744871.jpg",
       "rating": 9.5,
@@ -124,6 +133,7 @@
   ],
   "carOptions": [
     {
+      "id": 0,
       "rentalCompany": "https://www.enterprise.ca/content/dam/ecom/logo-enterprise.png",
       "make": "Kia",
       "vehicle": "Rio",
@@ -137,6 +147,7 @@
       "pricePerDay": 44
     },
     {
+      "id": 1,
       "rentalCompany": "https://www.enterprise.ca/content/dam/ecom/logo-enterprise.png",
       "make": "Kia",
       "vehicle": "Rio",
@@ -150,6 +161,7 @@
       "pricePerDay": 44
     },
     {
+      "id": 2,
       "rentalCompany": "https://www.enterprise.ca/content/dam/ecom/logo-enterprise.png",
       "make": "Kia",
       "vehicle": "Rio",

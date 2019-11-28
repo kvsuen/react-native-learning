@@ -9,8 +9,17 @@ import TripOverviewFooter from '../components/TripOverviewFooter/trip-overview-f
 const ItineraryScreen = ({ event }) => {
   const [expanded, setExpanded] = useState('flight');
   const [bookmarked, setBookmarked] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({
+    flight: {
+      depFlight: null,
+      retFlight: null
+    },
+    hotel: null,
+    car: null
+  });
   const [priceState, setPriceState] = useState({
-    flight: 0,
+    depFlight: 0,
+    retFlight: 0,
     hotel: 0,
     car: 0,
     totalPrice: 0
@@ -21,10 +30,10 @@ const ItineraryScreen = ({ event }) => {
     // for each of the flights, hotels, car
 
     // fetch bookmarked state
-    retrieveData();
+    retrieveBookmarkState();
   }, []);
 
-  const retrieveData = async () => {
+  const retrieveBookmarkState = async () => {
     try {
       const value = await AsyncStorage.getItem(String(event.id));
       if (value !== null) {
@@ -35,7 +44,7 @@ const ItineraryScreen = ({ event }) => {
     }
   };
 
-  const storeData = async () => {
+  const handleBookmark = async () => {
     try {
       if (bookmarked) {
         setBookmarked(false);
@@ -49,26 +58,31 @@ const ItineraryScreen = ({ event }) => {
     }
   };
 
-  const handleBookmark = () => {
-    storeData();
-  };
-
   const handleExpand = type => {
     setExpanded(type);
   };
 
-  const handleSelection = (type, price, qty) => {
+  const handleSelection = (id, type, price, qty) => {
     let total = price * qty;
-    
+
     const otherPrices = Object.keys(priceState).filter(price => {
       return price !== type && price !== 'totalPrice';
     });
-    
+
     otherPrices.forEach(key => {
       total += priceState[key];
     });
-    
+
     setPriceState({ ...priceState, [type]: price * qty, totalPrice: total });
+
+    if (type === 'depFlight' || type === 'retFlight') {
+      const selectedFlights = selectedItem.flight;
+      selectedFlights[type] = id;
+
+      setSelectedItem({ ...selectedItem, flights: selectedFlights });
+    } else {
+      setSelectedItem({ ...selectedItem, [type]: id });
+    }
   };
 
   return (
@@ -93,7 +107,8 @@ const ItineraryScreen = ({ event }) => {
           expanded={expanded === 'flight'}
           options={event.flightOptions}
           persons={event.persons}
-          price={priceState.flight}
+          price={priceState.depFlight + priceState.retFlight}
+          selectedItem={selectedItem.flight}
           handleExpand={handleExpand}
           handleSelection={handleSelection}
         />
@@ -104,6 +119,7 @@ const ItineraryScreen = ({ event }) => {
           rooms={event.rooms}
           nights={event.nights}
           price={priceState.hotel}
+          selectedItem={selectedItem.hotel}
           handleExpand={handleExpand}
           handleSelection={handleSelection}
         />
@@ -113,6 +129,7 @@ const ItineraryScreen = ({ event }) => {
           options={event.carOptions}
           days={event.days}
           price={priceState.car}
+          selectedItem={selectedItem.car}
           handleExpand={handleExpand}
           handleSelection={handleSelection}
         />

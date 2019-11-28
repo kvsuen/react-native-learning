@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-} from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { Ionicons, Entypo } from '@expo/vector-icons';
 
 import Chips from './Chips/chips.component';
@@ -19,9 +15,10 @@ const TravelTab = ({
   options,
   persons,
   rooms,
-  days, 
+  days,
   nights,
   price,
+  selectedItem,
   handleExpand,
   handleSelection
 }) => {
@@ -38,21 +35,41 @@ const TravelTab = ({
     subtitle = `Return, ${persons} person`;
     labels = ['Airlines', 'Stops', 'Time in', 'Time out'];
     bgColor = '#F8FAFE';
-    itineraryOptions = <FlightOptions options={options} handleSelection={handleSelection} />;
+    itineraryOptions = (
+      <FlightOptions
+        options={options}
+        selectedItem={selectedItem}
+        handleSelection={handleSelection}
+      />
+    );
   } else if (type === 'hotel') {
     icon = <Ionicons name="ios-bed" size={18} color="#989DB1" />;
     name = 'Hotel';
     subtitle = `${nights} nights, ${rooms} room`;
     labels = ['Name', 'Price', 'Type', 'Location'];
     bgColor = '#FFFFFF';
-    itineraryOptions = <HotelOptions options={options} handleSelection={handleSelection} qty={nights} />;
+    itineraryOptions = (
+      <HotelOptions
+        options={options}
+        selectedItem={selectedItem}
+        qty={nights}
+        handleSelection={handleSelection}
+      />
+    );
   } else if (type === 'car') {
     icon = <Ionicons name="ios-car" size={18} color="#989DB1" />;
     name = 'Car';
     subtitle = `${days} days`;
     labels = ['Supplier', 'Price', 'Type', 'Pickup', 'Drop off'];
     bgColor = '#F0F3F8';
-    itineraryOptions = <CarOptions options={options} handleSelection={handleSelection} qty={days} />;
+    itineraryOptions = (
+      <CarOptions
+        options={options}
+        selectedItem={selectedItem}
+        qty={days}
+        handleSelection={handleSelection}
+      />
+    );
   }
 
   const styles = StyleSheet.create({

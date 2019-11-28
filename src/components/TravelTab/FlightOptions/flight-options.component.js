@@ -3,9 +3,10 @@ import { View } from 'react-native';
 
 import FlightOptionsCard from './FlightOptionsCard/flight-options-card.component';
 
-const FlightOptions = ({ options, handleSelection }) => {
+const FlightOptions = ({ options, selectedItem, handleSelection }) => {
   const cards = options.map((option, index) => {
     const {
+      id,
       direction,
       airline,
       airlineImage,
@@ -20,7 +21,8 @@ const FlightOptions = ({ options, handleSelection }) => {
     } = option;
     return (
       <FlightOptionsCard
-        key={index}
+        key={id}
+        id={id}
         index={index}
         direction={direction}
         airline={airline}
@@ -33,6 +35,7 @@ const FlightOptions = ({ options, handleSelection }) => {
         stops={stops}
         flightTime={flightTime}
         price={price}
+        selectedItem={selectedItem}
         handleSelection={handleSelection}
       />
     );

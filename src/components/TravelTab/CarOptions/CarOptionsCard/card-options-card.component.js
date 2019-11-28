@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 const CarOptionsCard = ({
+  id,
   rentalCompany,
   make,
   vehicle,
@@ -19,12 +20,13 @@ const CarOptionsCard = ({
   deal,
   pickUpLocation,
   pricePerDay,
+  selectedItem,
   qty,
   handleSelection
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => handleSelection('car', pricePerDay, qty)}>
-      <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={() => handleSelection(id, 'car', pricePerDay, qty)}>
+      <View style={{...styles.container, borderColor: selectedItem === id ? 'rgb(255, 198, 112)' : '#D0EAE4'}}>
         <Image style={styles.image} source={{ uri: image }} />
         <View style={styles.textContainer}>
           <View>
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
     borderRadius: 20,
     width: 375,
-    borderColor: '#D0EAE4',
     borderWidth: 1
   },
   flexContainer: {

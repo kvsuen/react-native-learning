@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 
 const HotelOptionsCard = ({
+  id,
   name,
   image,
   rating,
@@ -10,12 +11,13 @@ const HotelOptionsCard = ({
   deal,
   walkDistance,
   pricePerNight,
+  selectedItem,
   qty,
   handleSelection
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => handleSelection('hotel', pricePerNight, qty)}>
-      <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={() => handleSelection(id, 'hotel', pricePerNight, qty)}>
+      <View style={{...styles.container, borderColor: selectedItem === id ? 'rgb(255, 198, 112)' : '#D0EAE4'}}>
         <View style={styles.image}>
           <Image style={styles.image} source={{ uri: image }} />
           <Text style={styles.description}> {rating} · Superb · {stars} star hotel </Text>
@@ -51,7 +53,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
     borderRadius: 20,
     width: 375,
-    borderColor: '#D0EAE4',
     borderWidth: 1
   },
   flexContainer: {
