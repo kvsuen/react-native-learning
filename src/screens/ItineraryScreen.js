@@ -7,7 +7,7 @@ import TravelTab from '../components/TravelTab/travel-tab.component';
 import TripOverviewFooter from '../components/TripOverviewFooter/trip-overview-footer.component';
 
 const ItineraryScreen = ({ event }) => {
-  const [expanded, setExpanded] = useState('hotel');
+  const [expanded, setExpanded] = useState('flight');
   const [price, setPrice] = useState('1500');
 
   useEffect(() => {

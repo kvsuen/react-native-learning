@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
-    marginRight: 5,
     marginBottom: 3
   },
   grayBoldText: {
