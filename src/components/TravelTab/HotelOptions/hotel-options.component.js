@@ -1,7 +1,7 @@
 import React from 'react';
 import HotelOptionsCard from './HotelOptionsCard/hotel-options-card.component';
 
-const HotelOptions = ({ options }) => {
+const HotelOptions = ({ options, handleSelection, qty }) => {
   const cards = options.map((option, index) => {
     const {
       name,
@@ -24,6 +24,8 @@ const HotelOptions = ({ options }) => {
         deal={deal}
         walkDistance={walkDistance}
         pricePerNight={pricePerNight}
+        qty={qty}
+        handleSelection={handleSelection}
       />
     );
   });

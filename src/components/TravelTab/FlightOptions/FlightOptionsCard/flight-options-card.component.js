@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const FlightOptionsCard = ({
-  type,
+  direction,
   index,
   airline,
   airlineImage,
@@ -14,40 +14,43 @@ const FlightOptionsCard = ({
   arrivalLocation,
   stops,
   flightTime,
-  price
+  price,
+  handleSelection
 }) => {
 
   return (
-    <View style={{...styles.container, marginBottom: index % 2 === 0 ? 10 : 0 }}>
-      <View style={styles.textContainer}>
-        <View>
-          <Text style={styles.title}>
-            {type} · {date}
-          </Text>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Image
-            style={{ height: 35, width: 35 }}
-            source={{ uri: airlineImage }}
-          />
-          <View style={{marginHorizontal: 20}}>
-            <Text style={styles.timeText}>{departureTime}</Text>
-            <Text style={styles.locationText}>{departureLocation}</Text>
+    <TouchableWithoutFeedback onPress={() => handleSelection('flight', price, 1)}>
+      <View style={{...styles.container, marginBottom: index % 2 === 0 ? 10 : 0 }}>
+        <View style={styles.textContainer}>
+          <View>
+            <Text style={styles.title}>
+              {direction} · {date}
+            </Text>
           </View>
-          <Ionicons name="ios-arrow-round-forward" size={36} color="black" />
-          <View style={{marginHorizontal: 20}}>
-            <Text style={styles.timeText}>{arrivalTime}</Text>
-            <Text style={styles.locationText}>{arrivalLocation}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Image
+              style={{ height: 35, width: 35 }}
+              source={{ uri: airlineImage }}
+            />
+            <View style={{marginHorizontal: 20}}>
+              <Text style={styles.timeText}>{departureTime}</Text>
+              <Text style={styles.locationText}>{departureLocation}</Text>
+            </View>
+            <Ionicons name="ios-arrow-round-forward" size={36} color="black" />
+            <View style={{marginHorizontal: 20}}>
+              <Text style={styles.timeText}>{arrivalTime}</Text>
+              <Text style={styles.locationText}>{arrivalLocation}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.flexContainer}>
-          <Text style={styles.grayText}>
-            {stops} Stop · {flightTime} · {airline}
-          </Text>
-          <Text style={styles.price}>C$ {price}</Text>
+          <View style={styles.flexContainer}>
+            <Text style={styles.grayText}>
+              {stops} Stop · {flightTime} · {airline}
+            </Text>
+            <Text style={styles.price}>C$ {price}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

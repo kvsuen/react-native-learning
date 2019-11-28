@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 
 const HotelOptionsCard = ({
   name,
@@ -9,33 +9,37 @@ const HotelOptionsCard = ({
   tag,
   deal,
   walkDistance,
-  pricePerNight
+  pricePerNight,
+  qty,
+  handleSelection
 }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.image}>
-        <Image style={styles.image} source={{ uri: image }} />
-        <Text style={styles.description}> {rating} · Superb · {stars} star hotel </Text>
-      </View>
-      <View style={styles.textContainer}>
-        <View>
-          <Text style={styles.title}>{name}</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={styles.grayBoldText}>{tag} &nbsp;&nbsp;</Text>
-            <Text style={styles.grayBoldText}>{deal}</Text>
+    <TouchableWithoutFeedback onPress={() => handleSelection('hotel', pricePerNight, qty)}>
+      <View style={styles.container}>
+        <View style={styles.image}>
+          <Image style={styles.image} source={{ uri: image }} />
+          <Text style={styles.description}> {rating} · Superb · {stars} star hotel </Text>
+        </View>
+        <View style={styles.textContainer}>
+          <View>
+            <Text style={styles.title}>{name}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.grayBoldText}>{tag} &nbsp;&nbsp;</Text>
+              <Text style={styles.grayBoldText}>{deal}</Text>
+            </View>
+          </View>
+          <View style={styles.flexContainer}>
+            <Text style={styles.grayText}>
+              {walkDistance / 60} minutes walk to destination
+            </Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.price}>C$ {pricePerNight} &nbsp;</Text>
+              <Text style={styles.grayText}>/ night </Text>
+            </View>
           </View>
         </View>
-        <View style={styles.flexContainer}>
-          <Text style={styles.grayText}>
-            {walkDistance / 60} minutes walk to destination
-          </Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={styles.price}>C$ {pricePerNight} &nbsp;</Text>
-            <Text style={styles.grayText}>/ night </Text>
-          </View>
-        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

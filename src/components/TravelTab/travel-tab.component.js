@@ -21,13 +21,14 @@ const TravelTab = ({
   rooms,
   days, 
   nights,
-  handleExpand
+  price,
+  handleExpand,
+  handleSelection
 }) => {
   let icon;
   let name;
   let subtitle;
   let labels = [];
-  let price = 500;
   let bgColor = '#FFFFFF';
   let itineraryOptions = <></>;
 
@@ -37,21 +38,21 @@ const TravelTab = ({
     subtitle = `Return, ${persons} person`;
     labels = ['Airlines', 'Stops', 'Time in', 'Time out'];
     bgColor = '#F8FAFE';
-    itineraryOptions = <FlightOptions options={options} />;
+    itineraryOptions = <FlightOptions options={options} handleSelection={handleSelection} />;
   } else if (type === 'hotel') {
     icon = <Ionicons name="ios-bed" size={18} color="#989DB1" />;
     name = 'Hotel';
     subtitle = `${nights} nights, ${rooms} room`;
     labels = ['Name', 'Price', 'Type', 'Location'];
     bgColor = '#FFFFFF';
-    itineraryOptions = <HotelOptions options={options} />;
+    itineraryOptions = <HotelOptions options={options} handleSelection={handleSelection} qty={nights} />;
   } else if (type === 'car') {
     icon = <Ionicons name="ios-car" size={18} color="#989DB1" />;
     name = 'Car';
     subtitle = `${days} days`;
     labels = ['Supplier', 'Price', 'Type', 'Pickup', 'Drop off'];
     bgColor = '#F0F3F8';
-    itineraryOptions = <CarOptions options={options} />;
+    itineraryOptions = <CarOptions options={options} handleSelection={handleSelection} qty={days} />;
   }
 
   const styles = StyleSheet.create({

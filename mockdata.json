@@ -11,7 +11,7 @@
   "days": 4,
   "flightOptions": [
     {
-      "type": "Departing",
+      "direction": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
       "date": "24 July",
@@ -24,7 +24,7 @@
       "price": 163
     },
     {
-      "type": "Returning",
+      "direction": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
       "date": "29 July",
@@ -34,10 +34,10 @@
       "arrivalLocation": "YYZ",
       "stops": 1,
       "flightTime": "4h 12m",
-      "price": 163
+      "price": 183
     },
     {
-      "type": "Departing",
+      "direction": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
       "date": "24 July",
@@ -50,7 +50,7 @@
       "price": 163
     },
     {
-      "type": "Returning",
+      "direction": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
       "date": "29 July",
@@ -60,10 +60,10 @@
       "arrivalLocation": "YYZ",
       "stops": 1,
       "flightTime": "4h 12m",
-      "price": 163
+      "price": 183
     },
     {
-      "type": "Departing",
+      "direction": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
       "date": "24 July",
@@ -77,7 +77,7 @@
     },
 
     {
-      "type": "Returning",
+      "direction": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
       "date": "29 July",
@@ -87,7 +87,7 @@
       "arrivalLocation": "YYZ",
       "stops": 1,
       "flightTime": "4h 12m",
-      "price": 163
+      "price": 183
     }
   ],
   "hotelOptions": [

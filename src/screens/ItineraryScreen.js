@@ -8,50 +8,67 @@ import TripOverviewFooter from '../components/TripOverviewFooter/trip-overview-f
 
 const ItineraryScreen = ({ event }) => {
   const [expanded, setExpanded] = useState('flight');
-  const [bookmarked, setBookmarked] = useState(false)
-  const [price, setPrice] = useState('1500');
+  const [bookmarked, setBookmarked] = useState(false);
+  const [priceState, setPriceState] = useState({
+    flight: 0,
+    hotel: 0,
+    car: 0,
+    totalPrice: 0
+  });
 
-  retrieveData = async () => {
+  useEffect(() => {
+    // would need to grab data from api depending on event here,
+    // for each of the flights, hotels, car
+
+    // fetch bookmarked state
+    retrieveData();
+  }, []);
+
+  const retrieveData = async () => {
     try {
       const value = await AsyncStorage.getItem(String(event.id));
       if (value !== null) {
-        setBookmarked(value)
+        setBookmarked(value);
       }
     } catch (error) {
       // Error retrieving data
     }
   };
 
-  storeData = async () => {
+  const storeData = async () => {
     try {
       if (bookmarked) {
-        setBookmarked(false)
+        setBookmarked(false);
         await AsyncStorage.setItem(String(event.id), '');
       } else {
-        setBookmarked(true)
+        setBookmarked(true);
         await AsyncStorage.setItem(String(event.id), '1');
-
       }
     } catch (error) {
       // Error saving data
     }
   };
 
-  useEffect(() => {
-    // grab data from api depending on event,
-    // for each of the flights, hotels, car
-    
-    // fetch bookmarked state
-    retrieveData()
-
-  }, []);
-
   const handleBookmark = () => {
-    storeData()
-  }
+    storeData();
+  };
 
   const handleExpand = type => {
     setExpanded(type);
+  };
+
+  const handleSelection = (type, price, qty) => {
+    let total = price * qty;
+    
+    const otherPrices = Object.keys(priceState).filter(price => {
+      return price !== type && price !== 'totalPrice';
+    });
+    
+    otherPrices.forEach(key => {
+      total += priceState[key];
+    });
+    
+    setPriceState({ ...priceState, [type]: price * qty, totalPrice: total });
   };
 
   return (
@@ -76,7 +93,9 @@ const ItineraryScreen = ({ event }) => {
           expanded={expanded === 'flight'}
           options={event.flightOptions}
           persons={event.persons}
+          price={priceState.flight}
           handleExpand={handleExpand}
+          handleSelection={handleSelection}
         />
         <TravelTab
           type="hotel"
@@ -84,16 +103,20 @@ const ItineraryScreen = ({ event }) => {
           options={event.hotelOptions}
           rooms={event.rooms}
           nights={event.nights}
+          price={priceState.hotel}
           handleExpand={handleExpand}
+          handleSelection={handleSelection}
         />
         <TravelTab
           type="car"
           expanded={expanded === 'car'}
           options={event.carOptions}
           days={event.days}
+          price={priceState.car}
           handleExpand={handleExpand}
+          handleSelection={handleSelection}
         />
-        <TripOverviewFooter price={price} />
+        <TripOverviewFooter price={priceState.totalPrice} />
       </LinearGradient>
     </View>
   );

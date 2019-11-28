@@ -1,7 +1,7 @@
 import React from 'react';
 import CarOptionsCard from './CarOptionsCard/card-options-card.component';
 
-const CarOptions = ({ options }) => {
+const CarOptions = ({ options, handleSelection, qty }) => {
   const cards = options.map((option, index) => {
     const {
       rentalCompany,
@@ -30,6 +30,8 @@ const CarOptions = ({ options }) => {
         deal={deal}
         pickUpLocation={pickUpLocation}
         pricePerDay={pricePerDay}
+        qty={qty}
+        handleSelection={handleSelection}
       />
     );
   });
