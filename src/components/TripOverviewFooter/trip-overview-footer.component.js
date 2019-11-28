@@ -6,7 +6,7 @@ const TripOverviewFooter = ({ price }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Trip Overview</Text>
-        <Text style={styles.price}>C$ 1000</Text>
+        <Text style={styles.price}>C$ {price}</Text>
       </View>
     </View>
   );
