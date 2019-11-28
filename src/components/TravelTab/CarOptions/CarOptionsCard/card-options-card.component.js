@@ -4,7 +4,7 @@ import {
   View,
   Text,
   Image,
-  TouchableWithoutFeedback
+  TouchableNativeFeedback
 } from 'react-native';
 
 const CarOptionsCard = ({
@@ -25,7 +25,7 @@ const CarOptionsCard = ({
   handleSelection
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => handleSelection(id, 'car', pricePerDay, qty)}>
+    <TouchableNativeFeedback onPress={() => handleSelection(id, 'car', pricePerDay, qty)}>
       <View style={{...styles.container, borderColor: selectedItem === id ? 'rgb(255, 198, 112)' : '#D0EAE4'}}>
         <Image style={styles.image} source={{ uri: image }} />
         <View style={styles.textContainer}>
@@ -66,7 +66,7 @@ const CarOptionsCard = ({
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableNativeFeedback>
   );
 };
 

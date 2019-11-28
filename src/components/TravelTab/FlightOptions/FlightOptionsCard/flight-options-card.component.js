@@ -4,7 +4,7 @@ import {
   View,
   Text,
   Image,
-  TouchableWithoutFeedback
+  TouchableNativeFeedback
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -28,7 +28,7 @@ const FlightOptionsCard = ({
   const flightSelection = direction === 'Departing' ? 'depFlight' : 'retFlight';
 
   return (
-    <TouchableWithoutFeedback
+    <TouchableNativeFeedback
       onPress={() => handleSelection(id, flightSelection, price, 1)}
     >
       <View
@@ -67,7 +67,7 @@ const FlightOptionsCard = ({
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableNativeFeedback>
   );
 };
 

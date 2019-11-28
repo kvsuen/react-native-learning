@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableNativeFeedback } from 'react-native';
 
 const HotelOptionsCard = ({
   id,
@@ -16,7 +16,7 @@ const HotelOptionsCard = ({
   handleSelection
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => handleSelection(id, 'hotel', pricePerNight, qty)}>
+    <TouchableNativeFeedback onPress={() => handleSelection(id, 'hotel', pricePerNight, qty)}>
       <View style={{...styles.container, borderColor: selectedItem === id ? 'rgb(255, 198, 112)' : '#D0EAE4'}}>
         <View style={styles.image}>
           <Image style={styles.image} source={{ uri: image }} />
@@ -41,7 +41,7 @@ const HotelOptionsCard = ({
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableNativeFeedback>
   );
 };
 
