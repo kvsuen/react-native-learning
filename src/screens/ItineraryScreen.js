@@ -50,7 +50,7 @@ const ItineraryScreen = ({ event }) => {
     storeData()
   }
 
-  const handleTouch = type => {
+  const handleExpand = type => {
     setExpanded(type);
   };
 
@@ -76,7 +76,7 @@ const ItineraryScreen = ({ event }) => {
           expanded={expanded === 'flight'}
           options={event.flightOptions}
           persons={event.persons}
-          handleTouch={handleTouch}
+          handleExpand={handleExpand}
         />
         <TravelTab
           type="hotel"
@@ -84,14 +84,14 @@ const ItineraryScreen = ({ event }) => {
           options={event.hotelOptions}
           rooms={event.rooms}
           nights={event.nights}
-          handleTouch={handleTouch}
+          handleExpand={handleExpand}
         />
         <TravelTab
           type="car"
           expanded={expanded === 'car'}
           options={event.carOptions}
           days={event.days}
-          handleTouch={handleTouch}
+          handleExpand={handleExpand}
         />
         <TripOverviewFooter price={price} />
       </LinearGradient>

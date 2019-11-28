@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
 
 import { Entypo } from '@expo/vector-icons';
 
-const Header = ({ expanded, icon, name, subtitle, price, handleTouch }) => {
+const Header = ({ expanded, icon, name, subtitle, price, handleExpand }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    open ? setOpen(false) : setOpen(true);
+  };
+
   const styles = StyleSheet.create({
     header: {
       flexDirection: 'row',
@@ -32,22 +38,42 @@ const Header = ({ expanded, icon, name, subtitle, price, handleTouch }) => {
     },
     dots: {
       marginHorizontal: 15
+    },
+    popup: {
+      position: 'absolute',
+      backgroundColor: 'white',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+      height: 75,
+      width: 75,
+      left: -50
     }
   });
 
   return (
-    <TouchableWithoutFeedback onPress={() => handleTouch(name.toLowerCase())}>
+    <TouchableWithoutFeedback onPress={() => handleExpand(name.toLowerCase())}>
       <View style={styles.header}>
         {icon}
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.subtitle}>{subtitle}</Text>
         <Text style={styles.price}>C$ {price}</Text>
-        <Entypo
-          style={styles.dots}
-          name="dots-three-vertical"
-          size={18}
-          color="#989DB1"
-        />
+        <TouchableWithoutFeedback onPress={() => handleOpen()}>
+          <View>
+            <Entypo
+              style={styles.dots}
+              name="dots-three-vertical"
+              size={18}
+              color="#989DB1"
+            />
+            {open && <View style={styles.popup}></View>}
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     </TouchableWithoutFeedback>
   );

@@ -21,7 +21,7 @@ const TravelTab = ({
   rooms,
   days, 
   nights,
-  handleTouch
+  handleExpand
 }) => {
   let icon;
   let name;
@@ -79,7 +79,7 @@ const TravelTab = ({
         name={name}
         subtitle={subtitle}
         price={price}
-        handleTouch={handleTouch}
+        handleExpand={handleExpand}
       />
       {expanded && (
         <>
