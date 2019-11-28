@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
 
 import { Entypo } from '@expo/vector-icons';
 
-const Header = ({ expanded, icon, name, subtitle, price }) => { 
+const Header = ({ expanded, icon, name, subtitle, price, handleTouch }) => {
   const styles = StyleSheet.create({
     header: {
       flexDirection: 'row',
       marginVertical: 15,
-      alignItems: 'center',
+      alignItems: 'center'
     },
     name: {
       color: expanded ? 'black' : '#989DB1',
@@ -36,20 +36,21 @@ const Header = ({ expanded, icon, name, subtitle, price }) => {
   });
 
   return (
-    <View style={styles.header}>
-      {icon}
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.subtitle}>{subtitle}</Text>
-      <Text style={styles.price}>C$ {price}</Text>
-      <Entypo
-        style={styles.dots}
-        name="dots-three-vertical"
-        size={18}
-        color="#989DB1"
-      />
-    </View>
+    <TouchableWithoutFeedback onPress={() => handleTouch(name.toLowerCase())}>
+      <View style={styles.header}>
+        {icon}
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text>
+        <Text style={styles.price}>C$ {price}</Text>
+        <Entypo
+          style={styles.dots}
+          name="dots-three-vertical"
+          size={18}
+          color="#989DB1"
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
 export default Header;
-

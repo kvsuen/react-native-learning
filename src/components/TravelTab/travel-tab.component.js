@@ -9,13 +9,16 @@ import {
 import { Ionicons, Entypo } from '@expo/vector-icons';
 
 import Chips from './Chips/chips.component';
-import Cards from './Cards/cards.component';
 import Footer from './Footer/footer.component';
 import Header from './Header/header.component';
+import FlightOptions from './FlightOptions/flight-options.component';
+import HotelOptions from './HotelOptions/hotel-options.component';
+import CarOptions from './CarOptions/car-options.component';
 
 const TravelTab = ({
   expanded,
   type,
+  options,
   persons,
   rooms,
   departure,
@@ -30,6 +33,7 @@ const TravelTab = ({
   let labels = [];
   let price = 500;
   let bgColor = '#FFFFFF';
+  let itineraryOptions = <></>;
 
   if (type === 'flight') {
     icon = <Entypo name="aircraft" size={18} color="#989DB1" />;
@@ -37,18 +41,21 @@ const TravelTab = ({
     subtitle = `Return, ${persons} person`;
     labels = ['Airlines', 'Stops', 'Time in', 'Time out'];
     bgColor = '#F8FAFE';
+    itineraryOptions = <FlightOptions options={options} />;
   } else if (type === 'hotel') {
     icon = <Ionicons name="ios-bed" size={18} color="#989DB1" />;
     name = 'Hotel';
     subtitle = `${nights} nights, ${rooms} room`;
     labels = ['Name', 'Price', 'Type', 'Location'];
     bgColor = '#FFFFFF';
+    itineraryOptions = <HotelOptions options={options} />;
   } else if (type === 'car') {
     icon = <Ionicons name="ios-car" size={18} color="#989DB1" />;
     name = 'Car';
     subtitle = `${days} days`;
     labels = ['Supplier', 'Price', 'Type', 'Pickup', 'Drop off'];
     bgColor = '#F0F3F8';
+    itineraryOptions = <CarOptions options={options} />;
   }
 
   const styles = StyleSheet.create({
@@ -63,37 +70,34 @@ const TravelTab = ({
       flexDirection: 'row',
       marginBottom: 15
     },
-    cardsContainer: {}
+    cardsContainer: {
+      flex: 1
+    }
   });
 
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={() => handleTouch(type)}>
-        <View>
-          <Header
-            expanded={expanded}
-            icon={icon}
-            name={name}
-            subtitle={subtitle}
-            price={price}
-          />
-          {expanded && (
-            <>
-              <View style={styles.chipsContainer}>
-                <Chips labels={labels} />
-              </View>
-              <ScrollView style={styles.cardsContainer} horizontal={true}>
-                <Cards type={type} />
-              </ScrollView>
-              <Footer />
-            </>
-          )}
-        </View>
-      </TouchableWithoutFeedback>
+      <Header
+        expanded={expanded}
+        icon={icon}
+        name={name}
+        subtitle={subtitle}
+        price={price}
+        handleTouch={handleTouch}
+      />
+      {expanded && (
+        <>
+          <View style={styles.chipsContainer}>
+            <Chips labels={labels} />
+          </View>
+          <ScrollView style={styles.cardsContainer} horizontal={true}>
+            {itineraryOptions}
+          </ScrollView>
+          <Footer />
+        </>
+      )}
     </View>
   );
 };
 
 export default TravelTab;
-
-

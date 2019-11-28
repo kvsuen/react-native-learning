@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     marginTop: 15,
-    marginBottom: 50,
+    marginBottom: 65,
     alignItems: 'center',
     justifyContent: 'space-between'
   },
