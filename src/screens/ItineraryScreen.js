@@ -26,10 +26,12 @@ const ItineraryScreen = ({ event }) => {
   });
 
   useEffect(() => {
-    // would need to grab data from api depending on event here,
+    // Would need to grab data from api depending on event here,
     // for each of the flights, hotels, car
+    // and set state here or in redux.
+    // Currently not using redux to save setup time.
 
-    // fetch bookmarked state
+    // fetch bookmarked state from device storage
     retrieveBookmarkState();
   }, []);
 
@@ -63,6 +65,8 @@ const ItineraryScreen = ({ event }) => {
   };
 
   const handleSelection = (id, type, price, qty) => {
+    // Each time an item is selected, update the price state
+    // and calculate new total price here as set state is asynchronous
     let total = price * qty;
 
     const otherPrices = Object.keys(priceState).filter(price => {
@@ -75,6 +79,7 @@ const ItineraryScreen = ({ event }) => {
 
     setPriceState({ ...priceState, [type]: price * qty, totalPrice: total });
 
+    // need to consider two selections for flight itinerary
     if (type === 'depFlight' || type === 'retFlight') {
       const selectedFlights = selectedItem.flight;
       selectedFlights[type] = id;
