@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     marginTop: 50,
-    marginBottom: 25
+    marginBottom: 15
   },
   backArrow: {
     marginHorizontal: 25

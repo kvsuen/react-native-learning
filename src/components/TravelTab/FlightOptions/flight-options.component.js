@@ -1,4 +1,6 @@
 import React from 'react';
+import { View } from 'react-native';
+
 import FlightOptionsCard from './FlightOptionsCard/flight-options-card.component';
 
 const FlightOptions = ({ options }) => {
@@ -19,6 +21,7 @@ const FlightOptions = ({ options }) => {
     return (
       <FlightOptionsCard
         key={index}
+        index={index}
         type={type}
         airline={airline}
         airlineImage={airlineImage}
@@ -34,7 +37,11 @@ const FlightOptions = ({ options }) => {
     );
   });
 
-  return cards;
+  return (
+    <View style={{ flexWrap: 'wrap' }}>
+      {cards}
+    </View>
+  );
 }
  
 export default FlightOptions;

@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const FlightOptionsCard = ({
   type,
+  index,
   airline,
   airlineImage,
   date,
@@ -15,8 +16,9 @@ const FlightOptionsCard = ({
   flightTime,
   price
 }) => {
+
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container, marginBottom: index % 2 === 0 ? 10 : 0 }}>
       <View style={styles.textContainer}>
         <View>
           <Text style={styles.title}>
@@ -25,14 +27,14 @@ const FlightOptionsCard = ({
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Image
-            style={{ height: 50, width: 50 }}
+            style={{ height: 35, width: 35 }}
             source={{ uri: airlineImage }}
           />
           <View style={{marginHorizontal: 20}}>
             <Text style={styles.timeText}>{departureTime}</Text>
             <Text style={styles.locationText}>{departureLocation}</Text>
           </View>
-          <Ionicons name="ios-arrow-round-forward" size={42} color="black" />
+          <Ionicons name="ios-arrow-round-forward" size={36} color="black" />
           <View style={{marginHorizontal: 20}}>
             <Text style={styles.timeText}>{arrivalTime}</Text>
             <Text style={styles.locationText}>{arrivalLocation}</Text>
@@ -53,6 +55,7 @@ export default FlightOptionsCard;
 
 const styles = StyleSheet.create({
   container: {
+    height: 130,
     backgroundColor: 'white',
     marginRight: 20,
     borderRadius: 20,
@@ -66,33 +69,32 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   textContainer: {
-    marginTop: -20,
     paddingHorizontal: 15,
-    paddingVertical: 15,
+    paddingVertical: 5,
     flex: 1,
     justifyContent: 'space-between'
   },
   title: {
     fontSize: 18,
-    marginTop: 15,
-    marginBottom: 15,
-    paddingBottom: 15,
+    marginTop: 5,
+    marginBottom: 5,
+    paddingBottom: 10,
     borderBottomColor: 'rgba(150, 150, 150, 0.4)',
     borderBottomWidth: 1
   },
   timeText: {
-    fontSize: 22,
+    fontSize: 20,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
-    marginVertical: 3
+    marginVertical: 1
   },
   locationText: {
-    fontSize: 22,
-    marginVertical: 3
+    fontSize: 20,
+    marginVertical: 1
   },
   grayText: {
     color: '#989DB1',
-    marginVertical: 3
+    marginVertical: 1
   },
   price: {
     fontSize: 18,

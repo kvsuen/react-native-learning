@@ -23,14 +23,14 @@
       "price": 163
     },
     {
-      "type": "Departing",
+      "type": "Returning",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
-      "date": "24 July",
-      "departureTime": "20:00",
-      "arrivalTime": "22:12",
-      "departureLocation": "YYZ",
-      "arrivalLocation": "YYC",
+      "date": "29 July",
+      "departureTime": "19:00",
+      "arrivalTime": "21:12",
+      "departureLocation": "YYC",
+      "arrivalLocation": "YYZ",
       "stops": 1,
       "flightTime": "4h 12m",
       "price": 163
@@ -62,18 +62,19 @@
       "price": 163
     },
     {
-      "type": "Returning",
+      "type": "Departing",
       "airline": "Westjet",
       "airlineImage": "https://pbs.twimg.com/profile_images/1145701560049004544/uJB7ZUgL_400x400.jpg",
-      "date": "29 July",
-      "departureTime": "19:00",
-      "arrivalTime": "21:12",
-      "departureLocation": "YYC",
-      "arrivalLocation": "YYZ",
+      "date": "24 July",
+      "departureTime": "20:00",
+      "arrivalTime": "22:12",
+      "departureLocation": "YYZ",
+      "arrivalLocation": "YYC",
       "stops": 1,
       "flightTime": "4h 12m",
       "price": 163
     },
+
     {
       "type": "Returning",
       "airline": "Westjet",
