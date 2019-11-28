@@ -1,8 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
-const Header = ({ title, startDate, endDate, departure, arrival }) => {
+const Header = ({
+  title,
+  startDate,
+  endDate,
+  departure,
+  arrival,
+  bookmarked,
+  handleBookmark
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.backArrow}>
@@ -21,9 +29,17 @@ const Header = ({ title, startDate, endDate, departure, arrival }) => {
           {arrival}
         </Text>
       </View>
-      <View style={styles.bookmark}>
-        <MaterialIcons name="bookmark-border" size={32} color="white" />
-      </View>
+      <TouchableWithoutFeedback onPress={handleBookmark}>
+        <View
+          style={{
+            ...styles.bookmark,
+            backgroundColor: bookmarked ? 'rgb(255, 198, 112)' : 'transparent',
+            borderWidth: bookmarked ? 0 : 1
+          }}
+        >
+          <MaterialIcons name="bookmark-border" size={32} color="white" />
+        </View>
+      </TouchableWithoutFeedback>
     </View>
   );
 };
@@ -46,7 +62,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 24,
-    marginBottom: 2,
+    marginBottom: 2
   },
   textSubText: {
     color: 'white',
@@ -54,7 +70,7 @@ const styles = StyleSheet.create({
     marginVertical: 2
   },
   bookmark: {
-    backgroundColor: 'rgb(255, 198, 112)',
+    borderColor: 'white',
     marginHorizontal: 25,
     borderRadius: 100,
     height: 50,

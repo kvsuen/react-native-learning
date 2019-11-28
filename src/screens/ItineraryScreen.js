@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, AsyncStorage } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Header from '../components/Header/header.component';
@@ -8,12 +8,47 @@ import TripOverviewFooter from '../components/TripOverviewFooter/trip-overview-f
 
 const ItineraryScreen = ({ event }) => {
   const [expanded, setExpanded] = useState('flight');
+  const [bookmarked, setBookmarked] = useState(false)
   const [price, setPrice] = useState('1500');
+
+  retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem(String(event.id));
+      if (value !== null) {
+        setBookmarked(value)
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  };
+
+  storeData = async () => {
+    try {
+      if (bookmarked) {
+        setBookmarked(false)
+        await AsyncStorage.setItem(String(event.id), '');
+      } else {
+        setBookmarked(true)
+        await AsyncStorage.setItem(String(event.id), '1');
+
+      }
+    } catch (error) {
+      // Error saving data
+    }
+  };
 
   useEffect(() => {
     // grab data from api depending on event,
     // for each of the flights, hotels, car
+    
+    // fetch bookmarked state
+    retrieveData()
+
   }, []);
+
+  const handleBookmark = () => {
+    storeData()
+  }
 
   const handleTouch = type => {
     setExpanded(type);
@@ -33,6 +68,8 @@ const ItineraryScreen = ({ event }) => {
           endDate={event.endDate}
           departure={event.departure}
           arrival={event.arrival}
+          bookmarked={bookmarked}
+          handleBookmark={handleBookmark}
         />
         <TravelTab
           type="flight"
