@@ -7,13 +7,13 @@ import TravelTab from '../components/TravelTab/travel-tab.component';
 import TripOverviewFooter from '../components/TripOverviewFooter/trip-overview-footer.component';
 
 const ItineraryScreen = ({ event }) => {
-  const [expanded, setExpanded] = useState('car');
+  const [expanded, setExpanded] = useState('hotel');
   const [price, setPrice] = useState('1500');
 
   useEffect(() => {
-    // grab data from api
-
-  }, [])
+    // grab data from api depending on event,
+    // for each of the flights, hotels, car
+  }, []);
 
   const handleTouch = type => {
     setExpanded(type);
@@ -39,8 +39,6 @@ const ItineraryScreen = ({ event }) => {
           expanded={expanded === 'flight'}
           options={event.flightOptions}
           persons={event.persons}
-          departure={event.departure}
-          arrival={event.arrival}
           handleTouch={handleTouch}
         />
         <TravelTab
@@ -49,7 +47,6 @@ const ItineraryScreen = ({ event }) => {
           options={event.hotelOptions}
           rooms={event.rooms}
           nights={event.nights}
-          arrival={event.arrival}
           handleTouch={handleTouch}
         />
         <TravelTab
@@ -57,7 +54,6 @@ const ItineraryScreen = ({ event }) => {
           expanded={expanded === 'car'}
           options={event.carOptions}
           days={event.days}
-          arrival={event.arrival}
           handleTouch={handleTouch}
         />
         <TripOverviewFooter price={price} />

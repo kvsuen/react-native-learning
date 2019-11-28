@@ -2,9 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Text,
   ScrollView,
-  TouchableWithoutFeedback
 } from 'react-native';
 import { Ionicons, Entypo } from '@expo/vector-icons';
 
@@ -21,9 +19,7 @@ const TravelTab = ({
   options,
   persons,
   rooms,
-  departure,
-  arrival,
-  days,
+  days, 
   nights,
   handleTouch
 }) => {
@@ -90,7 +86,11 @@ const TravelTab = ({
           <View style={styles.chipsContainer}>
             <Chips labels={labels} />
           </View>
-          <ScrollView style={styles.cardsContainer} horizontal={true}>
+          <ScrollView
+            style={styles.cardsContainer}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
             {itineraryOptions}
           </ScrollView>
           <Footer />

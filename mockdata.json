@@ -85,6 +85,9 @@
   "hotelOptions": [
     {
       "name": "Alt Hotel Calgary East Village",
+      "image": "https://q-cf.bstatic.com/images/hotel/max1024x768/193/193744871.jpg",
+      "rating": 9.5,
+      "stars": 4,
       "tag": "Event Partner",
       "deal": "Exclusive Deal",
       "walkDistance": 300,
@@ -92,6 +95,9 @@
     },
     {
       "name": "Alt Hotel Calgary East Village",
+      "image": "https://q-cf.bstatic.com/images/hotel/max1024x768/193/193744871.jpg",
+      "rating": 9.5,
+      "stars": 4,
       "tag": "Event Partner",
       "deal": "Exclusive Deal",
       "walkDistance": 300,
@@ -99,6 +105,9 @@
     },
     {
       "name": "Alt Hotel Calgary East Village",
+      "image": "https://q-cf.bstatic.com/images/hotel/max1024x768/193/193744871.jpg",
+      "rating": 9.5,
+      "stars": 4,
       "tag": "Event Partner",
       "deal": "Exclusive Deal",
       "walkDistance": 300,
